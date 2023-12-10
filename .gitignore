@@ -1,1 +1,10 @@
 .DS_Store
+__pycache__
+.pytest_cache
+.coverage
+
+# virtual env
+venv
+
+# testplan report
+report.json
