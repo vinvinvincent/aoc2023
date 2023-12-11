@@ -1,6 +1,8 @@
 ## Hello! 👋
 This is my [Advent of Code 2023](https://adventofcode.com/2023/) project! I code with python and test with [testplan](https://github.com/morganstanley/testplan).
 
+![testplan report](doc/testplan_report.png)
+
 ## How to Run
 ### testplan
 ```sh
