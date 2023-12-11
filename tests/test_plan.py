@@ -8,7 +8,7 @@ from testplan.testing import py_test
 COVERAGE_OPT='--coverage'
 COVERAGE=False
 
-DAYS=['8']
+DAYS=[8, 9]
 
 @test_plan(name='AOC 2023', json_path='report.json')
 def main(plan):
@@ -26,6 +26,7 @@ def main(plan):
 if __name__ == '__main__':
     COVERAGE = COVERAGE_OPT in sys.argv
     if COVERAGE:
+        print('INFO: coverage enabled')
         sys.argv.remove(COVERAGE_OPT)
     res = main()
     sys.exit(res.exit_code)
