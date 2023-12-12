@@ -1,6 +1,6 @@
 def get_calibration_value(input):
     '''
-    combining the first digit and the last digit (in that order) 
+    combining the first digit and the last digit (in that order)
     to form a single two-digit number'
     '''
     str_len = len(input)
@@ -19,8 +19,9 @@ def get_calibration_value(input):
 
     if not first or not last:
         raise ValueError(f'Invalid Input: {input}')
-    
+
     return int(first + last)
+
 
 def get_calibration_sum(inputs):
     '''sum all values from each input'''
@@ -29,12 +30,18 @@ def get_calibration_sum(inputs):
         sum += get_calibration_value(input)
     return sum
 
-def transform_word_to_digit(input):
 
+def transform_word_to_digit(input):
     DIGIT_DICT = {
-        'one':'one1one', 'two':'two2two', 'three':'three3three', 
-        'four':'four4four', 'five':'five5five', 'six':'six6six', 
-        'seven':'seven7seven', 'eight':'eight8eight', 'nine':'nine9nine',
+        'one': 'one1one',
+        'two': 'two2two',
+        'three': 'three3three',
+        'four': 'four4four',
+        'five': 'five5five',
+        'six': 'six6six',
+        'seven': 'seven7seven',
+        'eight': 'eight8eight',
+        'nine': 'nine9nine',
     }
     result = input
 
@@ -45,9 +52,10 @@ def transform_word_to_digit(input):
 
     return result
 
+
 def get_calibration_sum_with_transform(input):
     new_input = []
     for i in range(len(input)):
         new_input.append(transform_word_to_digit(input[i]))
-    
+
     return get_calibration_sum(new_input)

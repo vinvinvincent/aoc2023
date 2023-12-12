@@ -1,11 +1,11 @@
-PART1_SAMPLE_DATA_TEXT='''1abc2
+PART1_SAMPLE_DATA_TEXT = '''1abc2
 pqr3stu8vwx
 a1b2c3d4e5f
 treb7uchet'''
 
-PART1_SAMPLE_DATA=PART1_SAMPLE_DATA_TEXT.split('\n')
+PART1_SAMPLE_DATA = PART1_SAMPLE_DATA_TEXT.split('\n')
 
-PART2_SAMPLE_DATA_TEXT='''two1nine
+PART2_SAMPLE_DATA_TEXT = '''two1nine
 eightwothree
 abcone2threexyz
 xtwone3four
@@ -13,9 +13,9 @@ xtwone3four
 zoneight234
 7pqrstsixteen'''
 
-PART2_SAMPLE_DATA=PART2_SAMPLE_DATA_TEXT.split('\n')
+PART2_SAMPLE_DATA = PART2_SAMPLE_DATA_TEXT.split('\n')
 
-PUZZLE_DATA_TEXT='''29lzrxseven
+PUZZLE_DATA_TEXT = '''29lzrxseven
 9nnqljsixkzphvtmtr
 five73kskpfgbkcltwoccvf
 fiveq7
@@ -1016,4 +1016,4 @@ kfjzhdtgkjtqthree7pvmxs
 7two5one8
 3eighteightllkbxkbs9zgznxtj8lfflcst'''
 
-PUZZLE_DATA=PUZZLE_DATA_TEXT.split('\n')
+PUZZLE_DATA = PUZZLE_DATA_TEXT.split('\n')
