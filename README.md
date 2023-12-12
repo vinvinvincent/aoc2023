@@ -6,7 +6,10 @@ This is my [Advent of Code 2023](https://adventofcode.com/2023/) project! I code
 ## How to Run
 ### testplan
 ```sh
-python tests/test_plan.py
+# all the days
+python tests/test_plan.py -v
+# specific day
+python tests/test_plan.py -v --pattern="Day 1"
 
 # display testplan report
 tpsreport display fromjson report/report.json
@@ -14,7 +17,7 @@ tpsreport display fromjson report/report.json
 
 ### testplan with coverage
 ```sh
-python tests/test_plan.py --coverage
+python tests/test_plan.py --coverage -v
 coverage report -m
 coverage html
 
