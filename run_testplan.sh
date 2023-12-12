@@ -1,1 +1,1 @@
-python tests/test_plan.py -v
+python tests/test_plan.py -v "$@"

@@ -42,7 +42,7 @@ class TestDay8:
             result.eq(
                 Part2.total_steps(instructions, nodes, node_keys),
                 expected_steps,
-                description='Total Steps',
+                description='Expected Total Steps',
             )
         else:
             result.log(
