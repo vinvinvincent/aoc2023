@@ -1,1 +1,1 @@
-python tests/test_plan.py
+python tests/test_plan.py -v
