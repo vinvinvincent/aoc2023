@@ -45,10 +45,11 @@ class TestDay1:
     def test_part1_calibration_sum(self, env, result: Result, input, expected):
         '''Part 1: Sum of calibration values'''
         result.log(input, description='input')
+        actual = get_calibration_sum(input)
         if expected is not None:
-            result.eq(get_calibration_sum(input), expected, description='Expected Sum')
+            result.eq(actual, expected, description='Expected Sum')
         else:
-            result.log(get_calibration_sum(input), description='Sum')
+            result.log(actual, description='Sum')
 
     @pytest.mark.parametrize(
         'input, expected',
@@ -87,11 +88,12 @@ class TestDay1:
     ):
         '''Part 2: Sum of calibration values with transform'''
         result.log(input, description='input')
+        actual = get_calibration_sum_with_transform(input)
         if expected is not None:
             result.eq(
-                get_calibration_sum_with_transform(input),
+                actual,
                 expected,
                 description='Expected Sum',
             )
         else:
-            result.log(get_calibration_sum_with_transform(input), description='Sum')
+            result.log(actual, description='Sum')

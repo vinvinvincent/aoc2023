@@ -1,3 +1,3 @@
-python tests/test_plan.py --coverage -v
+python tests/test_plan.py --coverage -v "$@"
 coverage report -m
 coverage html

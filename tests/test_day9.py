@@ -20,6 +20,8 @@ class TestDay9:
         ],
     )
     def test_part1_extrapolated_value(self, env, result: Result, sequence, expected):
+        '''Part 1: find the next value for each history'''
+
         result.log(sequence, description='Sequence')
 
         prediction, prediction_sequences = get_extrapolated_value_from_sequence(
@@ -40,6 +42,8 @@ class TestDay9:
         ],
     )
     def test_part1_extrapolated_sum(self, env, result: Result, sequences, expected):
+        '''Part 1: sum of all extrapolated next values'''
+
         result.log(sequences, description='Sequences')
 
         prediction_sum = get_extrapolated_sum_from_sequences(sequences)
@@ -61,6 +65,8 @@ class TestDay9:
         ],
     )
     def test_part2_extrapolated_value(self, env, result: Result, sequence, expected):
+        '''Part 2: find the previous value for each history'''
+
         result.log(sequence, description='Sequence')
 
         prediction, prediction_sequences = get_extrapolated_value_from_sequence(
@@ -84,6 +90,8 @@ class TestDay9:
         ],
     )
     def test_part2_extrapolated_sum(self, env, result: Result, sequences, expected):
+        '''Part 2: sum of all extrapolated previous values'''
+
         result.log(sequences, description='Sequences')
 
         prediction_sum = get_extrapolated_sum_from_sequences(
