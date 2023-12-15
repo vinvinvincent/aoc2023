@@ -29,10 +29,10 @@ class TestDay9:
         )
         result.log(
             sequences_to_string(prediction_sequences),
-            description='Extrapolated Next Value Calculation',
+            description='Next Value Calculation',
         )
 
-        result.eq(prediction, expected, description='Expected Extrapolated Next Value')
+        result.eq(prediction, expected, description='Expected Next Value')
 
     @pytest.mark.parametrize(
         'sequences, expected',
@@ -48,13 +48,9 @@ class TestDay9:
 
         prediction_sum = get_extrapolated_sum_from_sequences(sequences)
         if expected:
-            result.eq(
-                prediction_sum,
-                expected,
-                description='Expected Extrapolated Next Sum',
-            )
+            result.eq(prediction_sum, expected, description='Expected Next Sum')
         else:
-            result.log(prediction_sum, description='Extrapolated Next Sum')
+            result.log(prediction_sum, description='Next Sum')
 
     @pytest.mark.parametrize(
         'sequence, expected',
@@ -75,12 +71,10 @@ class TestDay9:
         )
         result.log(
             sequences_to_string(prediction_sequences),
-            description='Extrapolated Previous Value Calculation',
+            description='Previous Value Calculation',
         )
 
-        result.eq(
-            prediction, expected, description='Expected Extrapolated Previous Value'
-        )
+        result.eq(prediction, expected, description='Expected Previous Value')
 
     @pytest.mark.parametrize(
         'sequences, expected',
@@ -99,10 +93,6 @@ class TestDay9:
             ExtrapolatedDirection.LEFT,
         )
         if expected:
-            result.eq(
-                prediction_sum,
-                expected,
-                description='Expected Extrapolated Previous Sum',
-            )
+            result.eq(prediction_sum, expected, description='Expected Previous Sum')
         else:
-            result.log(prediction_sum, description='Extrapolated Previous Sum')
+            result.log(prediction_sum, description='Previous Sum')

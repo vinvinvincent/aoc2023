@@ -90,10 +90,6 @@ class TestDay1:
         result.log(input, description='input')
         actual = get_calibration_sum_with_transform(input)
         if expected is not None:
-            result.eq(
-                actual,
-                expected,
-                description='Expected Sum',
-            )
+            result.eq(actual, expected, description='Expected Sum')
         else:
             result.log(actual, description='Sum')
