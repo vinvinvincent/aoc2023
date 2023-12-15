@@ -9,7 +9,7 @@ COVERAGE_FILE = '.coverage'
 COVERAGE_OPT = '--coverage'
 COVERAGE = False
 
-DAYS = [1, 8, 9]
+DAYS = [1, 8, 9, 15]
 
 
 @test_plan(name='AOC 2023', json_path='report.json')
