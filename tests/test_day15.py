@@ -32,7 +32,7 @@ class TestDay15:
 
         result.log(input, description='Input')
 
-        result.eq(calc_hash(input), expected, description='Expected Hash Value')
+        result.eq(calc_hash(input), expected, description='Hash Value')
 
     @pytest.mark.parametrize(
         'inputs, expected',
@@ -47,7 +47,7 @@ class TestDay15:
         result.log(inputs, description='Inputs')
         actual = calc_hash_sum(inputs)
         if expected:
-            result.eq(actual, expected, description='Expected Hash Sum')
+            result.eq(actual, expected, description='Hash Sum')
         else:
             result.log(actual, description='Hash Sum')
 
@@ -84,7 +84,7 @@ class TestDay15:
         boxes = dict()
         update_boxes_operations(boxes, inputs)
 
-        result.eq(boxes, expected, description='Expected Boxes')
+        result.eq(boxes, expected, description='Boxes')
 
     @pytest.mark.parametrize(
         'inputs, expected',
@@ -103,6 +103,6 @@ class TestDay15:
         actual = get_focusing_power(boxes)
 
         if expected:
-            result.eq(actual, expected, description='Expected Power')
+            result.eq(actual, expected, description='Power')
         else:
             result.log(actual, description='Power')

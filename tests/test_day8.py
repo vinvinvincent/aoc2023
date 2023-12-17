@@ -25,7 +25,7 @@ class TestDay8:
         actual = Part1.total_steps(instructions, nodes)
 
         if expected_steps:
-            result.eq(actual, expected_steps, description='Expected Total Steps')
+            result.eq(actual, expected_steps, description='Total Steps')
         else:
             result.log(actual, description='Total Steps')
 
@@ -43,6 +43,6 @@ class TestDay8:
         actual = Part2.total_steps(instructions, nodes, node_keys)
 
         if expected_steps:
-            result.eq(actual, expected_steps, description='Expected Total Steps')
+            result.eq(actual, expected_steps, description='Total Steps')
         else:
             result.log(actual, description='Total Steps')

@@ -26,14 +26,12 @@ class TestDay1:
         '''Part 1: Calibration value'''
         result.log(input, description='Input')
         try:
-            result.eq(
-                get_calibration_value(input), expected, description='Expected Value'
-            )
+            result.eq(get_calibration_value(input), expected, description='Value')
         except ValueError as e:
             if expected is not ValueError:
                 result.fail(f'Unexpected failure {e}')
             else:
-                result.log(f'{e}', description='Expected Exception')
+                result.log(f'{e}', description='Exception')
 
     @pytest.mark.parametrize(
         'input, expected',
@@ -47,7 +45,7 @@ class TestDay1:
         result.log(input, description='input')
         actual = get_calibration_sum(input)
         if expected is not None:
-            result.eq(actual, expected, description='Expected Sum')
+            result.eq(actual, expected, description='Sum')
         else:
             result.log(actual, description='Sum')
 
@@ -73,7 +71,7 @@ class TestDay1:
         result.eq(
             get_calibration_value(transform_word_to_digit(input)),
             expected,
-            description='Expected Value',
+            description='Value',
         )
 
     @pytest.mark.parametrize(
@@ -90,6 +88,6 @@ class TestDay1:
         result.log(input, description='input')
         actual = get_calibration_sum_with_transform(input)
         if expected is not None:
-            result.eq(actual, expected, description='Expected Sum')
+            result.eq(actual, expected, description='Sum')
         else:
             result.log(actual, description='Sum')

@@ -32,7 +32,7 @@ class TestDay9:
             description='Next Value Calculation',
         )
 
-        result.eq(prediction, expected, description='Expected Next Value')
+        result.eq(prediction, expected, description='Next Value')
 
     @pytest.mark.parametrize(
         'sequences, expected',
@@ -48,7 +48,7 @@ class TestDay9:
 
         prediction_sum = get_extrapolated_sum_from_sequences(sequences)
         if expected:
-            result.eq(prediction_sum, expected, description='Expected Next Sum')
+            result.eq(prediction_sum, expected, description='Next Sum')
         else:
             result.log(prediction_sum, description='Next Sum')
 
@@ -74,7 +74,7 @@ class TestDay9:
             description='Previous Value Calculation',
         )
 
-        result.eq(prediction, expected, description='Expected Previous Value')
+        result.eq(prediction, expected, description='Previous Value')
 
     @pytest.mark.parametrize(
         'sequences, expected',
@@ -93,6 +93,6 @@ class TestDay9:
             ExtrapolatedDirection.LEFT,
         )
         if expected:
-            result.eq(prediction_sum, expected, description='Expected Previous Sum')
+            result.eq(prediction_sum, expected, description='Previous Sum')
         else:
             result.log(prediction_sum, description='Previous Sum')
