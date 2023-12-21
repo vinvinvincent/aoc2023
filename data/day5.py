@@ -1,3 +1,84 @@
+from dataclasses import dataclass, field
+from typing import List
+
+
+#######################
+# data definition
+#######################
+@dataclass
+class SourceDestRange:
+    destination_start: int = 0
+    source_start: int = 0
+    range_length: int = 0
+
+
+@dataclass
+class SeedRange:
+    start: int = 0
+    length: int = 0
+
+
+@dataclass
+class Almanac:
+    seeds: List[int] = field(default_factory=list)
+    seed_ranges: List[SeedRange] = field(default_factory=list)
+    seed_to_soil: List[SourceDestRange] = field(default_factory=list)
+    soil_to_fertilizer: List[SourceDestRange] = field(default_factory=list)
+    fertilizer_to_water: List[SourceDestRange] = field(default_factory=list)
+    water_to_light: List[SourceDestRange] = field(default_factory=list)
+    light_to_temperature: List[SourceDestRange] = field(default_factory=list)
+    temperature_to_humidity: List[SourceDestRange] = field(default_factory=list)
+    humidity_to_location: List[SourceDestRange] = field(default_factory=list)
+
+
+#######################
+# data parsing
+#######################
+
+
+def convert_input_data(text):
+    lines = text.split('\n')
+    line_num = 0
+
+    almanac = Almanac()
+
+    # seeds: 79 14 55 13
+    # part 1 : seeds
+    almanac.seeds = [int(i) for i in lines[line_num].split(' ')[1:]]
+    line_num += 1
+    # part 2 : seed ranges
+    for start, length in zip(almanac.seeds[::2], almanac.seeds[1::2]):
+        range_data = SeedRange()
+        range_data.start = start
+        range_data.length = length
+        almanac.seed_ranges.append(range_data)
+
+    attr = None
+    while line_num < len(lines):
+        line = lines[line_num]
+        if line.endswith(' map:'):
+            # e.g. seed-to-soil map:
+            attr_name = lines[line_num].split(' ')[0].replace('-', '_')
+            attr = getattr(almanac, attr_name)
+        elif len(line):
+            # e.g. 50 98 2
+            range = SourceDestRange()
+            (
+                range.destination_start,
+                range.source_start,
+                range.range_length,
+            ) = [int(i) for i in lines[line_num].split(' ')]
+            attr.append(range)
+
+        line_num += 1
+
+    return almanac
+
+
+#######################
+# raw data
+#######################
+
 PART1_SAMPLE_DATA_TEXT = '''seeds: 79 14 55 13
 
 seed-to-soil map:
@@ -238,74 +319,9 @@ humidity-to-location map:
 1120661448 435636935 134200027
 130183265 2386051074 290870825'''
 
-from dataclasses import dataclass, field
-from typing import List
-
-
-@dataclass
-class SourceDestRange:
-    destination_start: int = 0
-    source_start: int = 0
-    range_length: int = 0
-
-
-@dataclass
-class SeedRange:
-    start: int = 0
-    length: int = 0
-
-
-@dataclass
-class Almanac:
-    seeds: List[int] = field(default_factory=list)
-    seed_ranges: List[SeedRange] = field(default_factory=list)
-    seed_to_soil: List[SourceDestRange] = field(default_factory=list)
-    soil_to_fertilizer: List[SourceDestRange] = field(default_factory=list)
-    fertilizer_to_water: List[SourceDestRange] = field(default_factory=list)
-    water_to_light: List[SourceDestRange] = field(default_factory=list)
-    light_to_temperature: List[SourceDestRange] = field(default_factory=list)
-    temperature_to_humidity: List[SourceDestRange] = field(default_factory=list)
-    humidity_to_location: List[SourceDestRange] = field(default_factory=list)
-
-
-def convert_input_data(text):
-    lines = text.split('\n')
-    line_num = 0
-
-    almanac = Almanac()
-
-    # seeds: 79 14 55 13
-    # part 1 : seeds
-    almanac.seeds = [int(i) for i in lines[line_num].split(' ')[1:]]
-    line_num += 1
-    # part 2 : seed ranges
-    for start, length in zip(almanac.seeds[::2], almanac.seeds[1::2]):
-        range_data = SeedRange()
-        range_data.start = start
-        range_data.length = length
-        almanac.seed_ranges.append(range_data)
-
-    attr = None
-    while line_num < len(lines):
-        line = lines[line_num]
-        if line.endswith(' map:'):
-            # e.g. seed-to-soil map:
-            attr_name = lines[line_num].split(' ')[0].replace('-', '_')
-            attr = getattr(almanac, attr_name)
-        elif len(line):
-            # e.g. 50 98 2
-            range = SourceDestRange()
-            (
-                range.destination_start,
-                range.source_start,
-                range.range_length,
-            ) = [int(i) for i in lines[line_num].split(' ')]
-            attr.append(range)
-
-        line_num += 1
-
-    return almanac
-
+#######################
+# parsed data
+#######################
 
 PART1_SAMPLE_DATA = convert_input_data(PART1_SAMPLE_DATA_TEXT)
 PUZZLE_DATA = convert_input_data(PUZZLE_DATA_TEXT)
