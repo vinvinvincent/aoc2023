@@ -5,6 +5,7 @@ from timeout_function_decorator import timeout
 from aoc2023.day4 import (
     get_card_points,
     get_sum_of_card_points,
+    get_total_cards_by_wining_copies,
 )
 from data.day4 import (
     SAMPLE_DATA,
@@ -42,4 +43,17 @@ class Testday4:
     def test_part1_sum(self, env, result: Result, input, expected):
         '''Part 1: sum'''
         actual = get_sum_of_card_points(input)
+        check_eq_or_log(result, actual, expected, 'sum')
+
+    @timeout(TIMEOUT_SEC)
+    @pytest.mark.parametrize(
+        'input, expected',
+        [
+            (SAMPLE_DATA, 30),
+            (PUZZLE_DATA, None),
+        ],
+    )
+    def test_part2_sum(self, env, result: Result, input, expected):
+        '''Part 2: sum'''
+        actual = get_total_cards_by_wining_copies(input)
         check_eq_or_log(result, actual, expected, 'sum')

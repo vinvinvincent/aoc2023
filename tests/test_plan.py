@@ -19,7 +19,9 @@ def main(plan):
             py_test.PyTest(
                 name=f'Day {day}',
                 target=[os.path.join(os.path.dirname(__file__), f'test_day{day}.py')],
-                extra_args=['--cov=aoc2023', '--cov-append'] if COVERAGE else None,
+                extra_args=['-s', '--cov=aoc2023', '--cov-append']
+                if COVERAGE
+                else ['-s'],
             )
         )
 
